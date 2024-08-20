@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="jspdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="imagenes/CeimicLogo.png" width="170">
+            <a class="position-absolute top-0 end-0" href="formatos/formatomanual.doc">Formato para imprimir o diligenciar manualmente</a>
+        </div>
+        <br/>
+        <div >
+            <h2 class="col-mt-8 offset-md-3" > Diligenciamiento solicitud de servicio </h2>
+        </div>
+    </header>
+    <div class="container mt-4">
+        <hr>
+        <div class="row">
+            <div class="offset-md-1 col-md-10">
+                <form id="form">
+
+                    <h4> Datos empresa solicitante </h4>
+                    <div class="mb-3">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                            <label for="NombreSolicitante" class="form-label">Empresa o persona titular del resultado:</label>
+                            <input type="text" class="form-control" id="NombreSolicitante">
+                            </div>
+                            <div class="col-md-6">
+                            <label for="Nit" class="form-label"> NIT o Cédula:</label>
+                            <input type="text" class="form-control" id="Nit">
+                            </div>
+                        </div>
+                   
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                            <label for="Direccion" class="form-label">Dirección:</label>
+                            <input type="text" class="form-control" id="Direccion">
+                            </div>
+                            <div class="col-md-6">
+                            <label for="Ciudad" class="form-label">Ciudad/Departamento:</label>
+                            <input type="text" class="form-control" id="Ciudad">
+                            </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                            <label for="PersonaContacto"class="form-label">Persona de contacto:</label>
+                            <input type="text" class="form-control" id="PersonaContacto">
+                            </div>
+                            <div class="col-md-6">
+                            <label for="TelefonoContacto"class="form-label">Teléfono:</label>
+                            <input type="text" class="form-control" id="TelefonoContacto">
+                            </div>
+                        </div>
+    
+                            
+                        <br/> 
+                    </div>
+    
+                        <div class="container mt-5">
+                            <h4> Información de facturación </h4><br/>
+                            <h6> ¿Es la misma empresa a la que se factura? </h6>                        
+                            <!-- Checkbox para controlar el colapso -->
+                            <div class="form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="FacturanteNo">
+                              <label class="form-check-label" for="FacturanteNo">
+                                No
+                              </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="FacturanteSi">
+                                <label class="form-check-label" for="FacturanteSi">
+                                  Si
+                                </label>
+                            </div>
+                          
+                            <!-- Contenido colapsable -->
+                            <div id="collapseFacturante" class="collapse mt-3">
+                              <div class="card card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                    <label for="NombreFacturante"class="form-label">Empresa a la que factura:</label>
+                                    <input type="text" class="form-control" id="NombreFacturante">
+                                    </div>
+                                    <div class="col-md-6">
+                                    <label for="NitFacturante"class="form-label"> NIT o Cédula:</label>
+                                    <input type="text" class="form-control" id="NitFacturante">
+                                    </div>
+                                </div>
+                           
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                    <label for="DireccionFacturante"class="form-label">Dirección:</label>
+                                    <input type="text" class="form-control" id="DireccionFacturante">
+                                    </div>
+                                    <div class="col-md-6">
+                                    <label for="CuidadFacturante"class="form-label">Ciudad/Departamento:</label>
+                                    <input type="text" class="form-control" id="CuidadFacturante">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="TelefonoFacturante"class="form-label">Teléfono:</label>
+                                        <input type="text" class="form-control" id="TelefonoFacturante">
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+
+
+
+                        
+                        <div class="mt-3">
+                            <div class="row  col-md-12">
+                                
+                                <label for="fact"class="form-label">Escriba el correo para enviar factura electrónica:</label>
+                                <input type="text" class="form-control" id="fact">
+                                  
+                            </div>
+                   
+                            <br/> 
+                        </div> 
+
+                        
+                        <h6> Escriba todos los correos donde desea recibir los resultados: </h6>
+                        <div class="row  col-md-12">
+                                <label for="CorrResul"class="form-label"></label>
+                                <input type="text" class="form-control" id="CorrResul">
+                        </div>
+                   
+                        <br/> 
+                        <br/> 
+
+
+
+                        <h4> Datos de la muestra </h4>                                                 <!-- DATOS DE LA MUESTRA -->
+                    <div class="mb-3">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                            <label for="matriz" class="form-label">Escriba la Matriz producto/variedad (futa, agua, suelo o poducto a analizar):</label>
+                            <input type="text" class="form-control" id="matriz">
+                            </div>
+                            <div class="col-md-6">
+                                <br/> 
+                            <label for="lugar" class="form-label"> Lugar de muestreo:</label>
+                            <input type="text" class="form-control" id="lugar">
+                            </div>
+                        </div>
+                   
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                            <label for="productor" class="form-label">Productor/Porveedor:</label>
+                            <input type="text" class="form-control" id="productor">
+                            </div>
+                            <div class="col-md-6">
+                            <label for="fecha" class="form-label">Fecha de muestreo:</label>
+                            <input type="date" class="form-control" id="fecha">
+                            </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                            <label for="codigo"class="form-label">Codigo/Lote/nomeclatura con la que identifica su muestra:</label>
+                            <input type="text" class="form-control" id="codigo">
+                            </div>
+                            <div class="col-md-6">
+                            <label for="sampler"class="form-label">Muestreador, persona que toma la muestra:</label>
+                            <input type="text" class="form-control" id="sampler">
+                            </div>
+                        </div>
+
+                        
+                        <div class="row  col-md-12">
+                                <label for="infadicional"class="form-label">Si tiene informacion adicional que quiera que se emita en su informe de resultado, escribala:</label>
+                                <input type="text" class="form-control" id="infadicional">
+                        </div>
+
+        
+                        <br/> 
+                    </div>
+                    <br/> 
+                        
+                    <!-- lista desplegable  MULTIRESIDUO -->
+
+                    <h4 class="col-mt-8 offset-md-3" >Análisis a solicitar </h4> 
+                        <div class="mb-3">
+                            <label for="multiresiduo" class="form-label">Análisis de multiresiduos de plagicidas químicos </label>
+                            <select class="form-select" id="multiresiduo">
+                                <option value=" ">Seleccione un análisis</option>
+                                <option style="font-weight:bold" value="MR1">(MR1) Barrido completo 571 moléculas GC+LC </option>
+                                <option value="MR2-LC">(MR2) Barrido 372 moléculas solo Cromatografía líquida LC </option>
+                                <option value="MR3-GC">(MR3) Barrido 443 moléculas solo Cromatografía gaseosa GC </option>
+    
+                            </select>
+                        </div>
+
+
+                    <!-- lista desplegable  DITIOS -->
+                    
+                        <div class="mb-3">
+                            <label for="ditios" class="form-label">Análisis de Ditiocarbamatos </label>
+                            <select class="form-select" id="ditios">
+                                <option value=" ">Seleccione un análisis</option>
+                                <option style="font-weight:bold" value="DT1"> Sumatoria de todos los ditiocarbamatos </option>
+                                <option value="Propineb"> Unicamente Propimeb </option>
+                                <option value="Mancozeb"> Unicamente Mancozeb </option>
+                                <option value="Thiram"> Unicamente Thiram </option>
+                                <option value="Metiram"> Unicamente Metiram </option>
+                                
+                            </select>
+                        </div>
+
+
+                         
+                                
+                            <!--
+                        <div class="mb-3">
+                            <div class="row mt-3">
+                                
+                                <label for="fact"class="form-label">fact:</label>
+                                <input type="text" class="form-control" id="fact">
+                                  
+                            </div>
+                   
+                            <br/> 
+                        </div> 
+                        -->
+                          
+                          <!-- Incluye jQuery y Bootstrap JS -->
+                          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+                          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                          
+                        <script>
+                            // Función para alternar el colapso basado en el estado del checkbox
+                            document.getElementById('FacturanteNo').addEventListener('change', function() {
+                              const collapseContent = document.getElementById('collapseFacturante');
+                              if (this.checked) {
+                                $(collapseContent).collapse('show')
+                                document.getElementById('FacturanteSi').checked=false;
+                              } else {
+                                $(collapseContent).collapse('hide')
+                                document.getElementById('FacturanteSi').checked=true;                            
+                              }
+                            });
+    
+                            document.getElementById('FacturanteSi').addEventListener('change', function() {
+                              const collapseContent = document.getElementById('collapseFacturante');
+                              if (this.checked) {
+                                $(collapseContent).collapse('hide')
+                                document.getElementById('FacturanteNo').checked=false;
+                              } else {
+                                $(collapseContent).collapse('show')
+                                document.getElementById('FacturanteNo').checked=true;                            
+                              }
+                            });
+    
+                        </script>
+    
+                          
+                          
+
+
+
+
+                            <!--  <label for="curso" class="form-label">Curso al que aspiro</label>
+                            <select class="form-select" id="curso">
+                             <option value="">Seleccione un curso</option>
+                             <option value="Desarrollo de aplicaciones web">Desarrollo de aplicaciones web</option>
+                            <option value="Desarrollo de aplicaciones moviles">Desarrollo de aplicaciones moviles
+                            </option>
+                            </select>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="nombre" class="form-label">Nombres</label>
+                                    <input type="text" class="form-control" id="nombre">
+                             </div>
+                                <div class="col-md-6">
+                                 <label for="apellido" class="form-label">Apellidos</label>
+                                 <input type="text" class="form-control" id="apellido">
+                                </div>
+                            </div>
+
+                         <div class="mb-3">
+                              <label for="email" class="form-label">Correo electronico</label>
+                             <input type="email" class="form-control" id="email">
+                            </div>
+
+                            <div class="row mb-3">
+                             <div class="col-md-6">
+                                    <label for="direccion" class="form-label">Direccion</label>
+                                 <input type="text" class="form-control" id="direccion">
+                             </div>
+                             <div class="col-md-6">
+                                  <label for="telefono" class="form-label">Telefono</label>
+                                 <input type="text" class="form-control" id="telefono">
+                             </div>
+                         </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-2">
+                                 <div>
+                                      <label for="" class="form-label">Tiene hijos</label>
+                                     <div class="form-check form-check-inline">
+                                            <input type="radio" name="hijos" class="form-check-input" id="hijos-si" value="1">
+                                          <label for="hijos-si" class="form-check-label">Si</label>
+                                        </div>
+                                     <div class="form-check form-check-inline">
+                                            <input type="radio" name="hijos" class="form-check-input" id="hijos-no" value="0"
+                                              checked>
+                                            <label for="hijos-no" class="form-check-label">No</label>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="col-md-10">
+                                  <div>
+                                      <label for="numeroHijos" class="form-label">Cuantos hijos tiene?</label>
+                                      <select class="form-select" id="numeroHijos">
+                                            <option value="0">Seleccione una opcion</option>
+                                           <option value="1">1</option>
+                                           <option value="2">2</option>
+                                           <option value="3">3</option>
+                                           <option value="4">4</option>
+                                           <option value="Mas de 4">Mas de 4</option>
+                                     </select>
+                                  </div>
+                             </div>
+                         </div>
+
+
+                            <div class="row mb-3">
+                             <div class="col-md-3">
+                                 <div>
+                                     <label for="" class="form-label">Tiene alguna discapacidad?</label>
+                                     <div class="form-check form-check-inline">
+                                           <input type="radio" name="discapacidad" class="form-check-input"
+                                              id="discapacidad-si" value="1">
+                                          <label for="discapacidad-si" class="form-check-label">Si</label>
+                                     </div>
+                                      <div class="form-check form-check-inline">
+                                          <input type="radio" name="discapacidad" class="form-check-input"
+                                             id="discapacidad-no" value="0" checked>
+                                         <label for="discapacidad-no" class="form-check-label">No</label>
+                                       </div>
+                                   </div>
+                              </div>
+                              <div class="col-md-9">
+                                   <div>
+                                       <label for="discapacidad-desc" class="form-label">Cual es la discapacidad?</label>
+                                       <input type="text" class="form-control" id="discapacidad-desc">
+                                  </div>
+                                </div>
+                          </div>
+
+                          <span class="d-block pb-2">Firma digital aqui</span>
+                          <div class="signature mb-2" style="width: 100%; height: 200px;">
+                                <canvas id="signature-canvas"
+                                 style="border: 1px dashed red; width: 100%; height: 200px;"></canvas>
+                         </div>
+
+                         <button type="submit" class="btn btn-primary mb-4">Generar PDF</button>
+                             -->
+                    
+                    
+                    
+
+
+
+
+
+                    <button type="submit" class="btn btn-primary"> Generar PDF </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
