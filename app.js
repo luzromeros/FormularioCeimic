@@ -269,5 +269,5 @@ async function generatePDF(NombreSolicitante, Nit, TelefonoContacto, Direccion, 
             pdf.text(superexpressChecked ? 'X' : '', 700, 506);  
 
 
-    pdf.save("example.pdf");
+    pdf.save("Solicitud_Analisis_CEIMIC.pdf");
 }
