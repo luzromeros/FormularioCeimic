@@ -42,7 +42,7 @@
              border-radius: 5px;  
          }  
         </style>
-        </style>
+        
         
 </head>
 
@@ -74,11 +74,11 @@
                         <div class="row mb-3 ">
                             <div class="col-md-6">
                             <label for="NombreSolicitante" class="form-label minimize-space">Empresa o persona titular del resultado:</label>
-                            <input type="text" class="form-control" id="NombreSolicitante">
+                            <input type="text" class="form-control" id="NombreSolicitante" required>
                             </div>
                             <div class="col-md-6">
                             <label for="Nit" class="form-label minimize-space"> NIT o Cédula:</label>
-                            <input type="text" class="form-control" id="Nit">
+                            <input type="text" class="form-control" id="Nit" required>
                             </div>
                         </div>
                    
@@ -175,7 +175,7 @@
                         <h6> Escriba todos los correos donde desea recibir los resultados: </h6>
                         <div class="row  col-md-12">
                                 <label for="CorrResul"class="form-label minimize-space"></label>
-                                <input type="text" class="form-control" id="CorrResul">
+                                <input type="text" class="form-control" id="CorrResul"required>
                         </div>
                    
                         <br/> 
@@ -188,7 +188,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                             <label for="matriz" class="form-label minimize-space">Escriba la Matriz producto/variedad (<span style="font-size: 0.8em;">futa, agua, suelo o producto a analizar</span>):</label>
-                            <input type="text" class="form-control" id="matriz">
+                            <input type="text" class="form-control" id="matriz"required>
                             </div>
                             <div class="col-md-6">
                                 <br/> 
@@ -204,7 +204,7 @@
                             </div>
                             <div class="col-md-6">
                             <label for="fecha" class="form-label minimize-space">Fecha de muestreo:</label>
-                            <input type="date" class="form-control" id="fecha">
+                            <input type="date" class="form-control" id="fecha"required>
                             </div>
                         </div>
     
@@ -483,6 +483,25 @@
                             </div>
 
                         </div>
+                        <script>
+                            // Función para manejar el cambio en los elementos de entrada
+                            function handleChange(event) {
+                              const element = event.target;
+                             element.value = element.checked ? 'X' : '';
+                             }
+
+                                // Lista de IDs de los elementos
+                                const ids = ['glyfo', 'fosetyl', 'etefon','clorato','diquat','kasugamicina','validamicina','hidroxiq','acidoOx','acrilamida','normal', 'express', 'superexpress'
+                                ];
+
+                                // Añadir el event listener a cada elemento con ID en la lista
+                                ids.forEach(id => {
+                                     const element = document.getElementById(id);
+                                     if (element) {
+                                     element.addEventListener('change', handleChange);
+                                  }
+                             });   
+                        </script>
 
                         <!-- Checbox  MRL -->
                     

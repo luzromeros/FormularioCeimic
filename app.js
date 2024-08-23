@@ -34,7 +34,7 @@ window.addEventListener('load', async () => {
         let DireccionFacturante = document.getElementById('DireccionFacturante').value;
         let CuidadFacturante = document.getElementById('CuidadFacturante').value;
         let TelefonoFacturante = document.getElementById('TelefonoFacturante').value;
-       
+        var error= document.getElementById('error');
 
         if (document.getElementById('FacturanteSi').checked) {
             NombreFacturante = NombreSolicitante
@@ -267,6 +267,9 @@ async function generatePDF(NombreSolicitante, Nit, TelefonoContacto, Direccion, 
             pdf.text(normalChecked ? 'X' : '', 360, 506);  
             pdf.text(expressChecked ? 'X' : '', 540, 506);  
             pdf.text(superexpressChecked ? 'X' : '', 700, 506);  
+
+
+     
 
 
     pdf.save("Solicitud_Analisis_CEIMIC.pdf");
